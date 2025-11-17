@@ -20,7 +20,8 @@ export function AppStack({initialRouteName = 'AppTabNavigator'}: Props){
     return (
         <Stack.Navigator screenOptions={{
         headerShown: false,
-        fullScreenGestureEnabled: true}} initialRouteName={initialRouteName}>
+        fullScreenGestureEnabled: true,
+        }} initialRouteName={initialRouteName}>
             <Stack.Screen name='AppTabNavigator' component={AppTabNavigation} />
             <Stack.Screen name='Enviar' component={Enviar} />
             <Stack.Screen name='Receber' component={Receber} />

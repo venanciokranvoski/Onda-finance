@@ -56,7 +56,7 @@ const DarkTheme: typeof lightTheme = {
 const lightTheme = {
     ...palette,
     primary: palette.primary,
-    primaryContrast: palette.primary,
+    primaryContrast: palette.gray01,
 
     background: palette.textSecondary,
     backgroundContrast: palette.textSecondary,

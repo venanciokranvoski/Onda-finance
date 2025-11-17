@@ -9,6 +9,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export function AppStackRouter(){
     const { isAuthenticated } = useAuthStore();
+
     return (
         <Stack.Navigator screenOptions={{headerShown: false }}>
             {

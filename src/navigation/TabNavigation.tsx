@@ -3,6 +3,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import { Icon } from "@components";
 import {DashboardScreen, TransactionsScreen, PortfolioScreen, SettingScreen} from '@screens';
 import {colors} from '@theme'
+import { useThemeStore } from "@store";
 
 
 export type AppTabBottomTabParamsList = {
@@ -15,15 +16,16 @@ export type AppTabBottomTabParamsList = {
 const Tab_Onda = createBottomTabNavigator<AppTabBottomTabParamsList>();
 
 export function AppTabNavigation(){
+    const { themeMode} = useThemeStore();
         return (
         <Tab_Onda.Navigator screenOptions={({route})=> ({
             headerShown: false,
-            tabBarActiveTintColor: colors.palette.primary,
-            tabBarInactiveTintColor: colors.palette.gray1,
+            tabBarActiveTintColor: themeMode === 'dark' ? colors.palette.success : colors.palette.success,
+            tabBarInactiveTintColor: themeMode === 'dark' ? colors.palette.gray1 : colors.palette.text,
             tabBarStyle: {
-            backgroundColor: colors.palette.background,
+            backgroundColor:    themeMode === 'dark' ? colors.palette.background : colors.palette.textSecondary,
             borderTopWidth: 0.2,
-            borderTopColor: colors.palette.primary,
+            borderTopColor: colors.palette.success,
             elevation: 5,
         },
             tabBarIcon: ({color, size}) => {
@@ -42,7 +44,7 @@ export function AppTabNavigation(){
                     iconName = "settings-outline";
                     break;
                 }
-                return <Icon family="Ionicons" name={iconName} size={size} color={color === colors.palette.primary ? "sucess" : "gray1"}/>;
+                return <Icon family="Ionicons" name={iconName} size={size} color={color === colors.palette.primary ? "sucess" : "success"}/>;
             },
         })}>
             <Tab_Onda.Screen name="Dashboard" component={DashboardScreen} />

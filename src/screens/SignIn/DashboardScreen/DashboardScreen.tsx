@@ -12,6 +12,8 @@ import { MainScreenProps } from "@navigation";
 import { websocketMock } from "@services";
 import { useDashboardStore } from "@store";
 import { FlatList } from "react-native";
+import {ptBR} from 'date-fns/locale';
+import {format} from 'date-fns'
 
 
 
@@ -50,6 +52,8 @@ export function DashboardScreen({ navigation }: MainScreenProps<"Dashboard">) {
     return <CardInfoGenerics ScreenForComponent="dashboard" asset={item} />;
   }
 
+  const currentDate = format(new Date(), "EEE dd MM yyyy", {locale: ptBR})
+
   return (
     <ScreenOnda Scrollable>
       <Box_Onda>
@@ -57,7 +61,7 @@ export function DashboardScreen({ navigation }: MainScreenProps<"Dashboard">) {
           Dashboard
         </TextOnda>
         <TextOnda preset="paragraphSmall" semiBold color={"gray3"}>
-          Sat 08, Nov 2025
+          {currentDate}
         </TextOnda>
       </Box_Onda>
 

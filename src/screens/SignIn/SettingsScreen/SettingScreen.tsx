@@ -35,16 +35,16 @@ export function SettingScreen() {
           <Box_Onda flexDirection="row" alignItems="center">
             <Icon
               family="FontAwesome5"
-              name="moon"
+              name={themeMode === 'dark' ? "moon" : "sun"}
               size={24}
-              color="primaryContrast"
+              color={themeMode === 'dark' ? "primaryContrast" : "sucess"}
             />
             <TextOnda preset="paragraphLarge" paddingLeft="s10" semiBold>
               Tema Escuro
             </TextOnda>
           </Box_Onda>
           <Switch
-            value={themeMode === 'light'}
+            value={themeMode === 'dark'}
             onValueChange={toggleThemeOnda}
             trackColor={{
               false: theme.colors.text,

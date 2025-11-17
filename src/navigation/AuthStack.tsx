@@ -13,7 +13,6 @@ const Stack = createNativeStackNavigator<AuthStackNavigationProps>();
 export function AuthStack(){
     return(
         <Stack.Navigator screenOptions={{headerShown: false, fullScreenGestureEnabled: true}}initialRouteName="Onboarding">
-            
             <Stack.Screen name="Onboarding"   component={OnboardingScreen}  />
             <Stack.Screen name="PinCreate"   component={PinCreateScreen}   />
             <Stack.Screen name="BioFaceID" component={FaceIDScreen} />
